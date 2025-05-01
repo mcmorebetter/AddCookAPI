@@ -1,0 +1,52 @@
+package com.github.teamhungry22.addcook.core.listener.mythicmobs;
+
+import com.github.teamhungry22.addcook.AddCook;
+import com.github.teamhungry22.addcook.core.command.ReloadType;
+import com.github.teamhungry22.addcook.core.compatibility.mythicmobs.MythicUtils;
+import com.github.teamhungry22.addcook.core.compatibility.mythicmobs.placeholders.AddCookPlaceholder;
+import com.github.teamhungry22.addcook.core.compatibility.mythicmobs.placeholders.MythicPlaceholder;
+import com.github.teamhungry22.addcook.core.compatibility.mythicmobs.placeholders.PDCPlaceholder;
+import com.github.teamhungry22.addcook.core.config.ConfigManager;
+import io.lumine.mythic.bukkit.events.MythicReloadedEvent;
+import io.lumine.mythic.core.skills.placeholders.PlaceholderExecutor;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MMReloadListener implements Listener {
+    private final AddCook plugin;
+    private final ConfigManager configManager;
+    private final PlaceholderExecutor placeholderManager;
+    private final List<MythicPlaceholder> placeholderList = new ArrayList<>();
+
+    public MMReloadListener(AddCook plugin) {
+        this.plugin = plugin;
+        this.configManager = plugin.getConfigManager();
+        this.placeholderManager = MythicUtils.getPlaceholderManager();
+    }
+
+    @EventHandler
+    public void onMythicMobsReload(MythicReloadedEvent event) {
+        // 미몹 리로드 시 가구 events 에서 등록한 커스텀 스킬들이 사라지기에 configManager도 같이 돌려줘야함
+        // 또한 플러그맨으로 addcook을 리로드할 시 isAutoLoad()가 풀림
+        if (plugin.isAutoLoad()) {
+            configManager.reload(ReloadType.AUTO);
+        }
+
+        loadPlaceholders();
+        registerPlaceholders();
+    }
+
+    private void loadPlaceholders() {
+        placeholderList.add(new AddCookPlaceholder(plugin));
+        placeholderList.add(new PDCPlaceholder());
+    }
+
+    private void registerPlaceholders() {
+        for (MythicPlaceholder registrar : placeholderList) {
+            registrar.register(placeholderManager);
+        }
+    }
+}

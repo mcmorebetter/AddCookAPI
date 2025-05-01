@@ -1,0 +1,30 @@
+package com.github.teamhungry22.addcook.core.objects.item;
+
+import com.github.teamhungry22.addcook.core.util.StringUtils;
+import net.kyori.adventure.text.Component;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
+
+public class RecipeBookItem extends AddCookItem {
+    private Component chat;
+
+    public RecipeBookItem(ItemStack itemStack, String type, String id, List<String> permissionList, String name, List<String> lore, String chatDisplay) {
+        super(itemStack, type, id, permissionList);
+        Component component = (name == null) ? itemStack.displayName() : StringUtils.getComponent(name);
+        this.setDisplayName(component);
+
+        List<Component> componentList = (lore.isEmpty()) ? itemStack.lore() : StringUtils.getComponentList(lore);
+        this.setLore(componentList);
+
+        this.chat = StringUtils.getComponent(chatDisplay);
+    }
+
+    public Component getChat() {
+        return chat;
+    }
+
+    public String toPermission() {
+        return "addcook.recipe." + id;
+    }
+}

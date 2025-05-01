@@ -1,0 +1,56 @@
+package com.github.teamhungry22.addcook.core.listener.addcook;
+
+import com.github.teamhungry22.addcook.AddCook;
+import com.github.teamhungry22.addcook.api.event.FurnitureDamagedEvent;
+import com.github.teamhungry22.addcook.core.config.ConfigManager;
+import com.github.teamhungry22.addcook.core.config.data.FurnitureData;
+import com.github.teamhungry22.addcook.core.config.data.MessageData;
+import com.github.teamhungry22.addcook.core.objects.action.ActionManager;
+import com.github.teamhungry22.addcook.core.objects.furniture.FurnitureEntity;
+import com.github.teamhungry22.addcook.core.objects.furniture.FurnitureUtils;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+
+import java.util.Map;
+
+public class FurnitureDamagedListener implements Listener {
+    private final ActionManager actionManager;
+    private final ConfigManager configManager;
+    private final Map<String, MessageData> messageMap;
+    private final Map<String, FurnitureData> furnitureMap;
+
+    public FurnitureDamagedListener(AddCook plugin) {
+        this.actionManager = plugin.getActionManager();
+        this.configManager = plugin.getConfigManager();
+        this.messageMap = configManager.getMessageMap();
+        this.furnitureMap = configManager.getFurnitureMap();
+    }
+
+    @EventHandler
+    public void onFurnitureDamagedEvent(FurnitureDamagedEvent event) {
+        if (event.isCancelled()) return;
+
+        Player player = event.getPlayer();
+        FurnitureEntity furnitureEntity = event.getFurnitureEntity();
+        FurnitureData furnitureData = furnitureMap.get(furnitureEntity.getFurniture());
+
+        if (furnitureData == null) return;
+        if (!FurnitureUtils.canInteract(player, furnitureEntity, furnitureData, actionManager)) return;
+
+        if (!FurnitureUtils.executeRequirements(player, furnitureEntity, furnitureData, "damaged")) return;
+        FurnitureUtils.executeEvents(player, furnitureEntity, furnitureData, "damaged");
+
+        if (furnitureEntity.getEntity().getScoreboardTags().contains("material_above")) {
+            actionManager.materialRemove(player, furnitureEntity, furnitureData);
+            return;
+        }
+
+        if (!configManager.isFurnitureOnlyUseTool()) {
+            actionManager.furnitureBreak(player, furnitureEntity, false);
+            return;
+        }
+
+        actionManager.useHammer(player, furnitureEntity, furnitureData);
+    }
+}

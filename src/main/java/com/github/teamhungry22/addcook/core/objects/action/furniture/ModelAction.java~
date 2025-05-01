@@ -1,0 +1,63 @@
+package com.github.teamhungry22.addcook.core.objects.action.furniture;
+
+import com.github.teamhungry22.addcook.core.compatibility.mythicmobs.MythicFurnitureUtils;
+import com.github.teamhungry22.addcook.core.config.ConfigManager;
+import com.github.teamhungry22.addcook.core.config.data.FurnitureData;
+import com.github.teamhungry22.addcook.core.config.data.ModelData;
+import com.github.teamhungry22.addcook.core.objects.action.Action;
+import com.github.teamhungry22.addcook.core.objects.action.ActionManager;
+import com.github.teamhungry22.addcook.core.objects.furniture.FurnitureEntity;
+import com.github.teamhungry22.addcook.core.util.MathUtils;
+
+import java.util.List;
+
+/**
+ * 요리 재료 모델의 커스텀 모델을 불러오는 Action 클래스
+ */
+public class ModelAction implements Action {
+    private final ActionManager am;
+    private final ConfigManager configManager;
+    private final FurnitureEntity furnitureEntity;
+    private final FurnitureData furnitureData;
+    private final ModelData modelData;
+
+    public ModelAction(ActionManager am, FurnitureEntity furnitureEntity, FurnitureData furnitureData, ModelData modelData) {
+        this.am = am;
+        this.configManager = am.getConfigManager();
+        this.furnitureEntity = furnitureEntity;
+        this.furnitureData = furnitureData;
+        this.modelData = modelData;
+    }
+
+    public void execute() {
+        if (modelData == null) {
+            loadDefaultModel(configManager.getModelRandomList());
+            return;
+        }
+
+        loadModel(modelData.getModelList(), furnitureData.getMaterialBone());
+    }
+
+    private void loadDefaultModel(List<String> randomList) {
+        if (randomList == null || randomList.isEmpty()) return;
+        
+        String modelDataName = randomList.get(MathUtils.getRandomInt(randomList.size()));
+        ModelData modelData2 = configManager.getModelMap().get(modelDataName);
+        if (modelData2 == null) return;
+
+        loadModel(modelData2.getModelList(), furnitureData.getMaterialBone());
+    }
+
+    private void loadModel(List<String> modelList, String bone) {
+        if (modelList == null || modelList.isEmpty()) return;
+
+        String modelValue = modelList.get(MathUtils.getRandomInt(modelList.size()));
+        if (!modelValue.contains(":")) return;
+
+        String[] modelArr = modelValue.trim().split(":");
+        if (modelArr.length == 1) return;
+
+        MythicFurnitureUtils.modelChange(furnitureEntity, bone, modelArr[0], modelArr[1]);
+    }
+}
+

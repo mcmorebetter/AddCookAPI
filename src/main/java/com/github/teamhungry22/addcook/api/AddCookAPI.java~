@@ -1,0 +1,47 @@
+package com.github.teamhungry22.addcook.api;
+
+import com.github.teamhungry22.addcook.AddCook;
+import com.github.teamhungry22.addcook.core.objects.entity.AddCookEntity;
+import com.github.teamhungry22.addcook.core.objects.entity.EntityManager;
+import com.github.teamhungry22.addcook.core.objects.furniture.FurnitureManager;
+import com.github.teamhungry22.addcook.core.objects.item.AddCookItem;
+import com.github.teamhungry22.addcook.core.objects.item.ItemManager;
+import org.bukkit.Location;
+
+import java.util.Optional;
+
+public class AddCookAPI {
+    private final ItemManager itemManager;
+    private final EntityManager entityManager;
+    private final FurnitureManager furnitureManager;
+
+    public AddCookAPI(AddCook plugin) {
+        this.itemManager = plugin.getItemManager();
+        this.entityManager = plugin.getEntityManager();
+        this.furnitureManager = plugin.getFurnitureManager();
+    }
+
+    public boolean isAddCookItem(Object obj) {
+        return getAddCookItem(obj).isPresent();
+    }
+
+    public Optional<AddCookItem> getAddCookItem(Object obj) {
+        return itemManager.item(obj);
+    }
+
+    public boolean isAddCookEntity(Object obj) {
+        return getAddCookEntity(obj).isPresent();
+    }
+
+    public Optional<AddCookEntity> getAddCookEntity(Object obj) {
+        return entityManager.entity(obj);
+    }
+
+    public int getAddCookEntityFromChunk(Location location) {
+        return entityManager.getEntityFromChunk(location).size();
+    }
+
+    public int getAddCookFurnitureFromChunk(Location location, String furniture) {
+        return furnitureManager.getFurnitureFromChunk(location, furniture);
+    }
+}

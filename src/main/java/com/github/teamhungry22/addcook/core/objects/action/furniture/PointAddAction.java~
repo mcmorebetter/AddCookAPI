@@ -1,0 +1,86 @@
+package com.github.teamhungry22.addcook.core.objects.action.furniture;
+
+import com.github.teamhungry22.addcook.api.event.PointAddEvent;
+import com.github.teamhungry22.addcook.core.compatibility.placeholderapi.AddCookPAPI;
+import com.github.teamhungry22.addcook.core.config.data.FurnitureData;
+import com.github.teamhungry22.addcook.core.config.data.MessageData;
+import com.github.teamhungry22.addcook.core.objects.action.Action;
+import com.github.teamhungry22.addcook.core.objects.action.ActionManager;
+import com.github.teamhungry22.addcook.core.objects.furniture.FurnitureEntity;
+import com.github.teamhungry22.addcook.core.objects.furniture.FurnitureUtils;
+import com.github.teamhungry22.addcook.core.objects.item.UseItem;
+import com.github.teamhungry22.addcook.core.task.tasks.PointTask;
+import com.github.teamhungry22.addcook.core.util.MessageUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.metadata.MetadataValue;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 요리 가구에 포인트를 추가하는 Action 클래스
+ */
+public class PointAddAction implements Action {
+    private final ActionManager am;
+    private final Map<String, MessageData> messageMap;
+
+    private final Player player;
+    private final FurnitureEntity furnitureEntity;
+    private final FurnitureData furnitureData;
+    private final UseItem useItem;
+
+    public PointAddAction(ActionManager am, Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData, UseItem useItem) {
+        this.am = am;
+        this.messageMap = am.getMessageMap();
+
+        this.player = player;
+        this.furnitureEntity = furnitureEntity;
+        this.furnitureData = furnitureData;
+        this.useItem = useItem;
+    }
+
+    public void execute() {
+        int point = useItem.getPoint();
+        if (point == 0) return;
+
+        int limit = furnitureData.getPointLimit();
+        if (furnitureEntity.getPoint() >= limit) return;
+
+        PointAddEvent customEvent = new PointAddEvent(player, furnitureEntity, useItem.getItemStack(), point);
+        Bukkit.getPluginManager().callEvent(customEvent);
+        if (customEvent.isCancelled()) return;
+
+        if (!FurnitureUtils.executeRequirements(player, furnitureEntity, furnitureData, "point-add")) return;
+
+        Entity entity = furnitureEntity.getEntity();
+        List<MetadataValue> pointCooldown = entity.getMetadata("point_cooldown");
+
+        if (pointCooldown.isEmpty()) {
+            addPoint(point, limit);
+            return;
+        }
+
+        if (FurnitureUtils.leftCooldown(pointCooldown.getFirst().asLong(), furnitureData.getPointCooldown()) > 0) {
+            MessageUtils.send(player, furnitureEntity, messageMap.get("COOLDOWN_POINT"));
+            return;
+        }
+
+        addPoint(point, limit);
+    }
+
+    private void addPoint(int point, int limit) {
+        furnitureEntity.addPoint(point, limit);
+        FurnitureUtils.executeEvents(player, furnitureEntity, furnitureData, "point-add");
+
+        FurnitureData.Display display = furnitureData.getPointDisplay();
+        if (display == null || !display.enabled()) return;
+
+        PointTask pointTask = am.pointDisplay(furnitureEntity, furnitureData);
+        if (pointTask != null) {
+            String text = AddCookPAPI.replacePlaceholder(player, furnitureEntity, display.text());
+            pointTask.update(text);
+        }
+    }
+}

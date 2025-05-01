@@ -1,0 +1,63 @@
+package com.github.teamhungry22.addcook.api.event;
+
+import com.github.teamhungry22.addcook.core.objects.furniture.FurnitureEntity;
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Cancellable;
+import org.bukkit.event.Event;
+import org.bukkit.event.HandlerList;
+
+public class FurnitureBreakEvent extends Event implements Cancellable {
+    private static final HandlerList handlers = new HandlerList();
+    private final Player player;
+    private final Entity entity;
+    private final FurnitureEntity furnitureEntity;
+    private boolean isCancelled;
+
+    public FurnitureBreakEvent(Player player, FurnitureEntity furnitureEntity) {
+        this.player = player;
+        this.entity = furnitureEntity.getEntity();
+        this.furnitureEntity = furnitureEntity;
+        this.isCancelled = false;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public Entity getEntity() {
+        return entity;
+    }
+
+    public Location getLocation() {
+        return entity.getLocation();
+    }
+
+    public String getFurniture() {
+        return furnitureEntity.getFurniture();
+    }
+
+    public FurnitureEntity getFurnitureEntity() {
+        return furnitureEntity;
+    }
+
+    @Override
+    public boolean isCancelled() {
+        return isCancelled;
+    }
+
+    @Override
+    public void setCancelled(boolean cancel) {
+        this.isCancelled = cancel;
+    }
+
+    @Override
+    public HandlerList getHandlers() {
+        return handlers;
+    }
+
+    public static HandlerList getHandlerList() {
+        return handlers;
+    }
+}

@@ -1,0 +1,23 @@
+package com.github.teamhungry22.addcook.core.compatibility.mythicmobs;
+
+import com.github.teamhungry22.addcook.core.util.NBTUtils;
+import org.bukkit.entity.Entity;
+
+public class MythicPlaceholderUtils {
+
+    public static String getPDC(Entity entity, String value) {
+        int index = value.indexOf(".");
+        if (index == -1) return "null";
+
+        String type = value.substring(0, index).toLowerCase();
+        String key = value.substring(index + 1).toLowerCase();
+
+        if (!NBTUtils.hasPDC(entity, key)) return "null";
+        return NBTUtils.getPDC(entity, key, type);
+    }
+
+    public static String hasTag(Entity entity, String value) {
+        if (entity.getScoreboardTags().contains(value)) return "true";
+        return "false";
+    }
+}

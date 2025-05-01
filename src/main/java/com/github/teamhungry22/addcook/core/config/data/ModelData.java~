@@ -1,0 +1,36 @@
+package com.github.teamhungry22.addcook.core.config.data;
+
+import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class ModelData {
+    public ModelData(String id, List<String> modelList, List<String> furnitureWhiteList) {
+        throw new AddCookNotFoundException();
+    }
+
+    public String getId() {
+        throw new AddCookNotFoundException();
+    }
+
+    public List<String> getModelList() {
+        throw new AddCookNotFoundException();
+    }
+
+    public List<String> getFurnitureWhiteList() {
+        throw new AddCookNotFoundException();
+    }
+
+    public List<String> getMaterialList(Integer index) {
+        throw new AddCookNotFoundException();
+    }
+
+    public Map<Integer, List<String>> getMaterialMap() {
+        throw new AddCookNotFoundException();
+    }
+    public void setMaterialMap(Integer index, List<String> list) {
+        throw new AddCookNotFoundException();
+    }
+}
