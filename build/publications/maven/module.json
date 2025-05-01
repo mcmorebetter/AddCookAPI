@@ -1,0 +1,83 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.teamhungry22",
+    "module": "addcook",
+    "version": "3.7",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.8"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "addcook-3.7.jar",
+          "url": "addcook-3.7.jar",
+          "size": 141196,
+          "sha512": "011e606e2181df790aa1617991b5a2ca786c664a99bb8d731f812e085368eaf51f4c467c2b53f62617e29f0da526a9a6b0e72c20a1866262cee45ca3757ad194",
+          "sha256": "acaa5a2d864ad13d5fc684f70ce686fb2ef2800b053da564f07e5e71ee79422a",
+          "sha1": "39c2167711e6ef4f8bda89cc2584735acbae05fd",
+          "md5": "a9d553d20d9ce43ed0dfa52e4e5b017f"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "de.tr7zw",
+          "module": "item-nbt-api",
+          "version": {
+            "requires": "2.14.1"
+          }
+        },
+        {
+          "group": "org.bstats",
+          "module": "bstats-bukkit",
+          "version": {
+            "requires": "3.0.2"
+          }
+        },
+        {
+          "group": "org.jetbrains",
+          "module": "annotations",
+          "version": {
+            "requires": "26.0.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "addcook-3.7.jar",
+          "url": "addcook-3.7.jar",
+          "size": 141196,
+          "sha512": "011e606e2181df790aa1617991b5a2ca786c664a99bb8d731f812e085368eaf51f4c467c2b53f62617e29f0da526a9a6b0e72c20a1866262cee45ca3757ad194",
+          "sha256": "acaa5a2d864ad13d5fc684f70ce686fb2ef2800b053da564f07e5e71ee79422a",
+          "sha1": "39c2167711e6ef4f8bda89cc2584735acbae05fd",
+          "md5": "a9d553d20d9ce43ed0dfa52e4e5b017f"
+        }
+      ]
+    }
+  ]
+}

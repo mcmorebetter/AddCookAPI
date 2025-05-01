@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'com.github.teamhungry22.addcook'
+version = project_version
+
+repositories {
+    mavenCentral()
+    maven { name = "papermc-repo"; url = "https://repo.papermc.io/repository/maven-public/" }
+    maven { name = "sonatype"; url = "https://oss.sonatype.org/content/groups/public/" } // gradle
+    maven { name = "lumine"; url = "https://mvn.lumine.io/repository/maven-public/" } // mythicmobs, modelengine
+    maven { name = "dmulloy2-repo"; url = "https://repo.dmulloy2.net/repository/public/" } // protocollib
+
+    maven { name = "jitpack"; url = "https://jitpack.io" } // itemsadder
+    maven { name = "nexomc"; url = "https://repo.nexomc.com/releases" } // nexo
+    maven { name = "phoenix"; url = "https://nexus.phoenixdevt.fr/repository/maven-public/" } // mmoitems, mythiclib
+    maven { name = "extendedclip"; url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/' } // papi
+
+    maven { name = "codemc"; url = "https://repo.codemc.io/repository/maven-public/" } //nbt-api
+}
+
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
+    compileOnly "io.lumine:Mythic-Dist:5.6.0"
+    compileOnly "com.ticxo.modelengine:ModelEngine:R4.0.4"
+    compileOnly "com.comphenix.protocol:ProtocolLib:5.1.0"
+    compileOnly "net.luckperms:api:5.4"
+
+    compileOnly "com.github.LoneDev6:API-ItemsAdder:3.6.1"
+    compileOnly "com.nexomc:nexo:0.7.0"
+    compileOnly 'io.lumine:MythicLib-dist:1.6.2-SNAPSHOT'
+    compileOnly 'net.Indyuce:MMOItems-API:6.9.5-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.11.6'
+
+    implementation "de.tr7zw:item-nbt-api:${nbt_api_version}"
+    implementation "org.bstats:bstats-bukkit:${bstats_version}"
+    implementation "org.jetbrains:annotations:${annotations_version}"
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "AddCook"
+            url = "https://repo.morebetter.co.kr/releases"
+            credentials(PasswordCredentials)
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            groupId = "com.github.teamhungry22"
+            artifactId = "addcook"
+            version = project_version
+            from components.java
+        }
+    }
+}
