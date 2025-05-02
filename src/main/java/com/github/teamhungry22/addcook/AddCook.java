@@ -104,7 +104,7 @@ public final class AddCook extends JavaPlugin {
     }
 
     private void loadCommands() {
-        plugin.getCommand("com/github/teamhungry22/addcook").setExecutor(new CommandManager(this));
+        plugin.getCommand("addcook").setExecutor(new CommandManager(this));
         plugin.getCommand("recipe").setExecutor(new RecipeViewerCommand(this));
     }
 
