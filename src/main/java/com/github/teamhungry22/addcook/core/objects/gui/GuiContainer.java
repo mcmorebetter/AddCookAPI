@@ -3,9 +3,6 @@ package com.github.teamhungry22.addcook.core.objects.gui;
 import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 
 public class GuiContainer {
-    private final int windowId;
-    private final Object containerType;
-
     public GuiContainer(int windowId, Object containerType) {
         throw new AddCookNotFoundException();
     }

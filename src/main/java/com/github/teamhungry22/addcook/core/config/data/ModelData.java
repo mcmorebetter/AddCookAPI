@@ -29,7 +29,6 @@ public class ModelData {
     public Map<Integer, List<String>> getMaterialMap() {
         throw new AddCookNotFoundException();
     }
-
     public void setMaterialMap(Integer index, List<String> list) {
         throw new AddCookNotFoundException();
     }

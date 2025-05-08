@@ -12,7 +12,7 @@ public class YamlConfigLoader {
         throw new AddCookNotFoundException();
     }
 
-    public YamlConfiguration loadYaml(String path) {
+    public YamlConfiguration loadYaml(String path, boolean fromResource) {
         throw new AddCookNotFoundException();
     }
 

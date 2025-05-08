@@ -16,7 +16,7 @@ public class ConfigUtils {
         throw new AddCookNotFoundException();
     }
 
-    public static void replaceKey(File file, String replaceText) {
+    public static void replaceKey(File file, String target, String replaceText) {
         throw new AddCookNotFoundException();
     }
 }

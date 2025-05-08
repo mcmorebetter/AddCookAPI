@@ -1,15 +1,12 @@
 package com.github.teamhungry22.addcook.core.util;
 
-import com.github.teamhungry22.addcook.AddCook;
+import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 import com.github.teamhungry22.addcook.core.config.data.MessageData;
 import com.github.teamhungry22.addcook.core.objects.furniture.FurnitureEntity;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 
 public class MessageUtils {
-    private static final AddCook plugin = AddCook.getInstance();
-
     public static void actionbar(Player player, String text) {
         throw new AddCookNotFoundException();
     }
@@ -54,9 +51,3 @@ public class MessageUtils {
         throw new AddCookNotFoundException();
     }
 }
-
-//
-//# {cook_cooldown} = 메세지를 발생시킨 가구의 요리 쿨타임
-//# {cook_left_time} = 메세지를 발생시킨 가구의 요리에 남은 시간
-//# {cook_left_percent} = 메세지를 발생시킨 가구의 요리에 완성도
-//

@@ -19,11 +19,11 @@ public class RecipeConfigManager {
         throw new AddCookNotFoundException();
     }
 
-    private void loadRecipesFromYaml(YamlConfiguration yaml, String filePath) {
+    private void loadRecipesFromYaml(YamlConfiguration yaml, String filePath, String fileName) {
         throw new AddCookNotFoundException();
     }
 
-    private void setRecipeData(ConfigurationSection section, String id, String itemPath) {
+    private void setRecipeData(ConfigurationSection section, String id, String itemPath, String fileName) {
         throw new AddCookNotFoundException();
     }
 

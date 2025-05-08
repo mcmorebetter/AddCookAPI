@@ -18,37 +18,39 @@ public class LineCommand implements Line {
         throw new AddCookNotFoundException();
     }
 
-    @Override
-    public String getLine() {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
-    public Double getChance() {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
-    public LineType getType() {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
-    public LineResult getResult() {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
-    public void setResult(LineResult lineResult) {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
     public void execute(Player player, Location location) {
         throw new AddCookNotFoundException();
     }
 
     private void executeCommand(Player player) {
+        throw new AddCookNotFoundException();
+    }
+
+    public String getLine() {
+        throw new AddCookNotFoundException();
+    }
+
+    public Double getChance() {
+        throw new AddCookNotFoundException();
+    }
+
+    public LineType getType() {
+        throw new AddCookNotFoundException();
+    }
+
+    public LineResult getResult() {
+        throw new AddCookNotFoundException();
+    }
+
+    public void setResult(LineResult lineResult) {
+        throw new AddCookNotFoundException();
+    }
+
+    public boolean isForce() {
+        throw new AddCookNotFoundException();
+    }
+
+    public void setForce(boolean force) {
         throw new AddCookNotFoundException();
     }
 

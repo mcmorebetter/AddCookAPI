@@ -19,8 +19,4 @@ public class MaterialAddCookAction implements Action {
     public void execute() {
         throw new AddCookNotFoundException();
     }
-
-    private void returnItem() {
-        throw new AddCookNotFoundException();
-    }
 }

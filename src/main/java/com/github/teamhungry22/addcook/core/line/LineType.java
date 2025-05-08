@@ -5,5 +5,6 @@ public enum LineType {
     SOUND,
     EXP,
     CMD,
-    MSG
+    MSG,
+    LIST
 }

@@ -1,16 +1,12 @@
 package com.github.teamhungry22.addcook.core.util;
 
-import com.github.teamhungry22.addcook.AddCook;
-import com.github.teamhungry22.addcook.core.objects.item.ItemManager;
+import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 import net.kyori.adventure.text.Component;
 import org.bukkit.inventory.ItemStack;
+
 import java.util.List;
 
-import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
-
 public class ItemUtils {
-    private static final ItemManager itemManager = AddCook.getInstance().getItemManager();
-
     public static boolean isTool(ItemStack item) {
         throw new AddCookNotFoundException();
     }
@@ -40,6 +36,10 @@ public class ItemUtils {
     }
 
     public static ItemStack getCustomItem(ItemStack itemStack, String name, List<String> lore) {
+        throw new AddCookNotFoundException();
+    }
+
+    public static ItemStack getCustomItem(ItemStack itemStack, String name) {
         throw new AddCookNotFoundException();
     }
 

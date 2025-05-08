@@ -1,14 +1,12 @@
 package com.github.teamhungry22.addcook.core.objects.item;
 
 import com.github.teamhungry22.addcook.AddCook;
-import com.github.teamhungry22.addcook.core.config.ConfigManager;
-import org.bukkit.inventory.ItemStack;
 import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
+import org.bukkit.inventory.ItemStack;
+
 import java.util.Optional;
 
 public class ItemManager {
-    private final ConfigManager configManager;
-
     public ItemManager(AddCook plugin) {
         throw new AddCookNotFoundException();
     }

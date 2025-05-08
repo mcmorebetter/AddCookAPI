@@ -1,11 +1,8 @@
 package com.github.teamhungry22.addcook.core.util;
 
 import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
-import java.util.regex.Pattern;
 
 public class VersionUtils {
-    private static final Pattern VERSION_PATTERN = Pattern.compile("1\\.(19|20|21)(\\.\\d+)?");
-
     public static String getVersion() {
         throw new AddCookNotFoundException();
     }

@@ -21,4 +21,8 @@ public class PlayerInteractListener implements Listener {
     private void furniturePlaceEvent(Player player, PlayerInteractEvent event, AddCookItem addCookItem) {
         throw new AddCookNotFoundException();
     }
+
+    private void recipeBookUseEvent(Player player, AddCookItem addCookItem) {
+        throw new AddCookNotFoundException();
+    }
 }

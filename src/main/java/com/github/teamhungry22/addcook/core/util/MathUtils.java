@@ -1,12 +1,13 @@
 package com.github.teamhungry22.addcook.core.util;
 
+import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
+
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 
 public class MathUtils {
-    public static Double parsedDouble(String value, Double def) {
+    public static <T extends Number> T parse(String value, Function<String, T> parser, T def) {
         throw new AddCookNotFoundException();
     }
 

@@ -1,7 +1,7 @@
 package com.github.teamhungry22.addcook.core.objects.action;
 
 import com.github.teamhungry22.addcook.AddCook;
-import com.github.teamhungry22.addcook.api.event.StackEndEvent;
+import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 import com.github.teamhungry22.addcook.core.config.ConfigManager;
 import com.github.teamhungry22.addcook.core.config.data.*;
 import com.github.teamhungry22.addcook.core.line.LineManager;
@@ -24,23 +24,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 
 public class ActionManager {
-    private final AddCook plugin;
-    private final ConfigManager configManager;
-    private final LineManager lineManager;
-    private final ItemManager itemManager;
-    private final EntityManager entityManager;
-    private final FurnitureManager furnitureManager;
-    private final Map<String, GuiData> guiMap;
-    private final Map<String, Object> failMap;
-    private final Map<String, MessageData> messageMap;
-    private final Map<String, FurnitureData> furnitureMap;
-    private final Map<Integer, List<ModelData>> modelStageMap;
-
-    private final Map<UUID, PointTask> pointTaskMap = new HashMap<>();
-
     public ActionManager(AddCook plugin) {
         throw new AddCookNotFoundException();
     }
@@ -86,7 +71,8 @@ public class ActionManager {
     }
     
     // 포인트 디스플레이
-    // 여기서 if (!furnitureData.isPointEnabled()) 검사를 안하는 이유는 stack의 디스플레이를 띄우기 위해서
+    // 여기서 if (!furnitureData.isPointEnabled()) 검사를 안하는 이유는
+    // stack의 디스플레이를 띄우기 위해서
     public PointTask pointDisplay(FurnitureEntity furnitureEntity, FurnitureData furnitureData) {
         throw new AddCookNotFoundException();
     }
@@ -108,111 +94,101 @@ public class ActionManager {
 
     // 요리 결과
     public void cookEnd(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData, RecipeData recipeData, CookResult cookResult) {
-        CookEndAction action = new CookEndAction(this, player, furnitureEntity, furnitureData, recipeData, cookResult);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
 
     // 요리 디스플레이
     public void cookDisplay(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData, RecipeData recipeData, CookResult cookResult) {
-        CookDisplayAction action = new CookDisplayAction(this, player, furnitureEntity, furnitureData, recipeData, cookResult);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
 
     // 스택 시작
     public void stackStart(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData, ToolItem toolItem) {
-        StackStartAction action = new StackStartAction(this, player, furnitureEntity, furnitureData, toolItem);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
 
     // 스택 결과
     public void stackEnd(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData) {
-        StackEndAction action = new StackEndAction(this, player, furnitureEntity, furnitureData);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
 
     // 레시피 북 GUI 열기
     public void recipeOpen(Player player, FurnitureEntity furnitureEntity) {
-        RecipeBookOpenAction action = new RecipeBookOpenAction(this, player, furnitureEntity);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
     
     // 망치 사용
     public void useHammer(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData) {
-        HammerAction action = new HammerAction(this, player, furnitureEntity, furnitureData);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
 
     // 뒤집개 사용
     public void useTurner(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData) {
-        TurnerAction action = new TurnerAction(this, player, furnitureEntity, furnitureData);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
 
     // 바닐라 재료 추가
     public void materialVanilla(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData) {
-        if (!furnitureData.isMaterialEnabled()) return;
-        MaterialVanillaAction action = new MaterialVanillaAction(this, player, furnitureEntity, furnitureData);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
 
     // AddCook 재료 추가
+    // 여기서 if (!furnitureData.isMaterialEnabled()) 검사를 안하는 이유는
+    // AddCook 재료의 effect를 모든 가구에서 사용할 수 있게 하기 위해
     public void materialAddCook(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData, MaterialItem materialItem) {
-        if (!furnitureData.isMaterialEnabled()) return;
-        MaterialAddCookAction action = new MaterialAddCookAction(this, player, furnitureEntity, furnitureData, materialItem);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
 
     // 재료 제거
     public void materialRemove(Player player, FurnitureEntity furnitureEntity, FurnitureData furnitureData) {
-        MaterialRemoveAction action = new MaterialRemoveAction(this, player, furnitureEntity, furnitureData);
-        action.execute();
+        throw new AddCookNotFoundException();
     }
     
     public AddCook getPlugin() {
-        return plugin;
+        throw new AddCookNotFoundException();
     }
 
     public ConfigManager getConfigManager() {
-        return configManager;
+        throw new AddCookNotFoundException();
     }
 
     public LineManager getLineManager() {
-        return lineManager;
+        throw new AddCookNotFoundException();
     }
 
     public ItemManager getItemManager() {
-        return itemManager;
+        throw new AddCookNotFoundException();
     }
 
     public EntityManager getEntityManager() {
-        return entityManager;
+        throw new AddCookNotFoundException();
     }
 
     public FurnitureManager getFurnitureManager() {
-        return furnitureManager;
+        throw new AddCookNotFoundException();
     }
 
     public Map<String, GuiData> getGuiMap() {
-        return guiMap;
+        throw new AddCookNotFoundException();
     }
 
     public Map<String, Object> getFailMap() {
-        return failMap;
+        throw new AddCookNotFoundException();
     }
 
     public Map<String, MessageData> getMessageMap() {
-        return messageMap;
+        throw new AddCookNotFoundException();
     }
 
     public Map<String, FurnitureData> getFurnitureMap() {
-        return furnitureMap;
+        throw new AddCookNotFoundException();
     }
 
     public Map<Integer, List<ModelData>> getModelStageMap() {
-        return modelStageMap;
+        throw new AddCookNotFoundException();
     }
 
     public Map<UUID, PointTask> getPointTaskMap() {
-        return pointTaskMap;
+        throw new AddCookNotFoundException();
     }
 }

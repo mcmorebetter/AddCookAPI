@@ -2,21 +2,15 @@ package com.github.teamhungry22.addcook.core.config;
 
 import com.github.teamhungry22.addcook.AddCook;
 import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
-import com.github.teamhungry22.addcook.api.event.ACookReloadEvent;
 import com.github.teamhungry22.addcook.core.command.ReloadType;
 import com.github.teamhungry22.addcook.core.config.data.*;
 import com.github.teamhungry22.addcook.core.config.manager.*;
 import com.github.teamhungry22.addcook.core.objects.item.MaterialItem;
 import com.github.teamhungry22.addcook.core.objects.item.ToolItem;
-import com.github.teamhungry22.addcook.core.util.MessageUtils;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class ConfigManager {
     public ConfigManager(AddCook plugin) {
@@ -160,10 +154,6 @@ public class ConfigManager {
     }
 
     public double getModelLoadTime() {
-        throw new AddCookNotFoundException();
-    }
-
-    public boolean isDisplayEnabled() {
         throw new AddCookNotFoundException();
     }
 

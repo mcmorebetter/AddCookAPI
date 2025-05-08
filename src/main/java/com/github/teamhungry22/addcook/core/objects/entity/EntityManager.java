@@ -1,17 +1,16 @@
 package com.github.teamhungry22.addcook.core.objects.entity;
 
 import com.github.teamhungry22.addcook.AddCook;
-import com.github.teamhungry22.addcook.core.config.ConfigManager;
+import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
-import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
 
 public class EntityManager {
-    private final ConfigManager configManager;
-    private static final Map<UUID, AddCookEntity> entityMap = new HashMap<>();
-
     public EntityManager(AddCook plugin) {
         throw new AddCookNotFoundException();
     }

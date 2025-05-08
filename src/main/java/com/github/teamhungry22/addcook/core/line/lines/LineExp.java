@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import java.util.Optional;
 
 public class LineExp implements Line {
-    public LineExp(String line, int amount, double chance) {
+    public LineExp(String line, String amount, double chance) {
         throw new AddCookNotFoundException();
     }
 
@@ -18,37 +18,39 @@ public class LineExp implements Line {
         throw new AddCookNotFoundException();
     }
 
-    @Override
-    public String getLine() {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
-    public Double getChance() {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
-    public LineType getType() {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
-    public LineResult getResult() {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
-    public void setResult(LineResult lineResult) {
-        throw new AddCookNotFoundException();
-    }
-
-    @Override
     public void execute(Player player, Location location) {
         throw new AddCookNotFoundException();
     }
 
-    public int getAmount() {
+    public String getLine() {
+        throw new AddCookNotFoundException();
+    }
+
+    public Double getChance() {
+        throw new AddCookNotFoundException();
+    }
+
+    public LineType getType() {
+        throw new AddCookNotFoundException();
+    }
+
+    public LineResult getResult() {
+        throw new AddCookNotFoundException();
+    }
+
+    public void setResult(LineResult lineResult) {
+        throw new AddCookNotFoundException();
+    }
+
+    public boolean isForce() {
+        throw new AddCookNotFoundException();
+    }
+
+    public void setForce(boolean force) {
+        throw new AddCookNotFoundException();
+    }
+
+    public String getAmount() {
         throw new AddCookNotFoundException();
     }
 }

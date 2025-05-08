@@ -6,12 +6,6 @@ import org.bukkit.inventory.ItemStack;
 import java.util.List;
 
 public class UseItem extends AddCookItem {
-    private final boolean infinite;
-    private final int point;
-    private final String playEvent;
-    private final String changeColorBone;
-    private final String changeColor;
-
     public UseItem(ItemStack itemStack, String type, String id, List<String> permissionList,
                    boolean infinite, int point, String playEvent, String changeColorBone, String changeColor) {
         super(itemStack, type, id, permissionList);

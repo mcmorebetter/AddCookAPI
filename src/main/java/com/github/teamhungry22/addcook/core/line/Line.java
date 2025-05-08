@@ -9,5 +9,7 @@ public interface Line {
     LineType getType();
     LineResult getResult();
     void setResult(LineResult lineResult);
+    boolean isForce();
+    void setForce(boolean force);
     void execute(Player player, Location location);
 }

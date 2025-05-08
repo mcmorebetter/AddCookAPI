@@ -1,12 +1,13 @@
 package com.github.teamhungry22.addcook.core.util;
 
+import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 import de.tr7zw.changeme.nbtapi.iface.ReadWriteNBT;
 import de.tr7zw.changeme.nbtapi.iface.ReadableNBT;
 import org.bukkit.entity.Entity;
 import org.bukkit.inventory.ItemStack;
+
 import java.util.function.Consumer;
 import java.util.function.Function;
-import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 
 public class NBTUtils {
     public static boolean hasNBT(ItemStack itemStack, String key) {

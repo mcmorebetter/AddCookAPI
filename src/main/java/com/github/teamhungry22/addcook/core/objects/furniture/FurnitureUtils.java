@@ -1,8 +1,8 @@
 package com.github.teamhungry22.addcook.core.objects.furniture;
 
+import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 import com.github.teamhungry22.addcook.core.config.data.FurnitureData;
 import com.github.teamhungry22.addcook.core.objects.action.ActionManager;
-import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 import org.bukkit.entity.Player;
 
 import java.util.List;

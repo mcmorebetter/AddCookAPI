@@ -17,4 +17,8 @@ public class PlayerInventoryListener implements Listener {
     private boolean isPlayerInventory(Inventory inv, Player player) {
         throw new AddCookNotFoundException();
     }
+
+    private void cancel(InventoryClickEvent event) {
+        throw new AddCookNotFoundException();
+    }
 }

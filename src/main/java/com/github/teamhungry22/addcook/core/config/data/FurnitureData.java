@@ -1,31 +1,27 @@
 package com.github.teamhungry22.addcook.core.config.data;
 
 import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
-import com.github.teamhungry22.addcook.core.compatibility.mythicmobs.MythicUtils;
 import com.github.teamhungry22.addcook.core.objects.item.AddCookItem;
-import com.github.teamhungry22.addcook.core.util.MathUtils;
 import org.bukkit.configuration.ConfigurationSection;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class FurnitureData {
-    public FurnitureData(String id, List<String> permissionList, AddCookItem itemStack, String model,
+    public FurnitureData(String id, String name, List<String> permissionList, AddCookItem itemStack, String model,
                          boolean cancelPlace, boolean cancelDrop, boolean cancelRotation, boolean cancelColorChange,
-                         int chunkLimit, String dropOffset, String displayOffset,
+                         int chunkLimit, String dropOffset, String displayOffset, List<String> materialWhitelist,
                          boolean materialEnabled, String materialBone, double materialCooldown, int materialLimit,
                          boolean partEnabled, boolean partInfinite, boolean dropPart, double partCooldown, int partLimit, List<String> partFurnitureList,
                          boolean pointEnabled, boolean pointInfinite, double pointCooldown, int pointLimit,
                          boolean cookEnabled, String cookType, double cookCooldown,
                          boolean cookFadeColorEnabled, String cookFadeColorBone,
                          boolean stackEnabled, double stackCooldown, int stackLimit,
-                         ConfigurationSection requirementsSection, ConfigurationSection eventsSection,
                          ConfigurationSection pointDisplaySection, ConfigurationSection cookDisplaySection, ConfigurationSection stackDisplaySection) {
+        throw new AddCookNotFoundException();
     }
 
-    private Map<String, List<String>> registerSkills(String type, ConfigurationSection section) {
+    public Map<String, List<String>> registerSkills(String type, ConfigurationSection section) {
         throw new AddCookNotFoundException();
     }
 
@@ -50,6 +46,10 @@ public class FurnitureData {
     public record Display(String displayName, boolean enabled, String text, String type, double scale, int opacity, String billboard, int[] backgroundColor) {}
 
     public String getId() {
+        throw new AddCookNotFoundException();
+    }
+
+    public String getName() {
         throw new AddCookNotFoundException();
     }
 
@@ -82,6 +82,10 @@ public class FurnitureData {
     }
 
     public int getChunkLimit() {
+        throw new AddCookNotFoundException();
+    }
+
+    public List<String> getMaterialWhiteList() {
         throw new AddCookNotFoundException();
     }
 
@@ -197,7 +201,15 @@ public class FurnitureData {
         throw new AddCookNotFoundException();
     }
 
+    public void setRequirementsMap(Map<String, List<String>> requirementsMap) {
+        throw new AddCookNotFoundException();
+    }
+
     public Map<String, List<String>> getEventsMap() {
+        throw new AddCookNotFoundException();
+    }
+
+    public void setEventsMap(Map<String, List<String>> eventsMap) {
         throw new AddCookNotFoundException();
     }
 }

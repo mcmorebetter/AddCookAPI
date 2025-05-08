@@ -5,7 +5,8 @@ import com.github.teamhungry22.addcook.api.AddCookNotFoundException;
 public enum ReloadType {
     AUTO,
     FIRST,
-    NORMAL;
+    NORMAL,
+    RECIPE_CREATE;
 
     public static boolean has(String value) {
         throw new AddCookNotFoundException();

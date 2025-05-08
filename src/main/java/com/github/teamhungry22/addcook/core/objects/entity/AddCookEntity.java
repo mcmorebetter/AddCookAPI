@@ -7,12 +7,6 @@ import org.bukkit.entity.Entity;
 import java.util.UUID;
 
 public class AddCookEntity {
-    protected Entity entity;
-    protected UUID uuid;
-    protected ActiveMob activeMob;
-    protected String ownerUUID;
-    protected String entityType;
-
     public AddCookEntity(Entity entity, String ownerUUID, String entityType) {
         throw new AddCookNotFoundException();
     }
