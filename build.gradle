@@ -29,11 +29,12 @@ dependencies {
     compileOnly "net.luckperms:api:5.4"
 
     compileOnly "com.github.LoneDev6:API-ItemsAdder:3.6.1"
-    compileOnly "com.nexomc:nexo:0.7.0"
+    compileOnly "com.nexomc:nexo:1.1.0"
     compileOnly 'io.lumine:MythicLib-dist:1.6.2-SNAPSHOT'
     compileOnly 'net.Indyuce:MMOItems-API:6.9.5-SNAPSHOT'
     compileOnly 'me.clip:placeholderapi:2.11.6'
 
+    implementation "net.wesjd:anvilgui:${anvil_gui_version}"
     implementation "de.tr7zw:item-nbt-api:${nbt_api_version}"
     implementation "org.bstats:bstats-bukkit:${bstats_version}"
     implementation "org.jetbrains:annotations:${annotations_version}"
