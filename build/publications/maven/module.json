@@ -1,0 +1,90 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.teamhungry22",
+    "module": "addcook",
+    "version": "3.7.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.8"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "addcook-3.7.3.jar",
+          "url": "addcook-3.7.3.jar",
+          "size": 140208,
+          "sha512": "4934b549490b28d5385c9419c80eb833976188137f0c0ad2ac4ac2c308c8fec70dc58f2b7d2ea68055f7bf032a2bd269115401287bbff31b7acc8d4437cbb5ac",
+          "sha256": "c502f812841dac968858050a574fd7df6440cbb140868ef44e2ed297fe052476",
+          "sha1": "7fd8f58974d7483d711634ee6ad157129b9a0176",
+          "md5": "1331d545d7e402df664fef2ac2123fa7"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "net.wesjd",
+          "module": "anvilgui",
+          "version": {
+            "requires": "1.10.5-SNAPSHOT"
+          }
+        },
+        {
+          "group": "de.tr7zw",
+          "module": "item-nbt-api",
+          "version": {
+            "requires": "2.14.1"
+          }
+        },
+        {
+          "group": "org.bstats",
+          "module": "bstats-bukkit",
+          "version": {
+            "requires": "3.0.2"
+          }
+        },
+        {
+          "group": "org.jetbrains",
+          "module": "annotations",
+          "version": {
+            "requires": "26.0.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "addcook-3.7.3.jar",
+          "url": "addcook-3.7.3.jar",
+          "size": 140208,
+          "sha512": "4934b549490b28d5385c9419c80eb833976188137f0c0ad2ac4ac2c308c8fec70dc58f2b7d2ea68055f7bf032a2bd269115401287bbff31b7acc8d4437cbb5ac",
+          "sha256": "c502f812841dac968858050a574fd7df6440cbb140868ef44e2ed297fe052476",
+          "sha1": "7fd8f58974d7483d711634ee6ad157129b9a0176",
+          "md5": "1331d545d7e402df664fef2ac2123fa7"
+        }
+      ]
+    }
+  ]
+}
