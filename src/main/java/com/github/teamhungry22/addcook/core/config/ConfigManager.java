@@ -145,10 +145,6 @@ public class ConfigManager {
         throw new AddCookNotFoundException();
     }
 
-    public boolean isMechanicsEnabled(String type) {
-        throw new AddCookNotFoundException();
-    }
-
     public boolean isFurnitureOnlyUseTool() {
         throw new AddCookNotFoundException();
     }

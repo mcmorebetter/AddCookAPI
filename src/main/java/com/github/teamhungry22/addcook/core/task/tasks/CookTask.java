@@ -21,6 +21,10 @@ public class CookTask implements ITask {
         throw new AddCookNotFoundException();
     }
 
+    private String getColor(double progress) {
+        throw new AddCookNotFoundException();
+    }
+
     private java.awt.Color getColor() {
         throw new AddCookNotFoundException();
     }
